@@ -2,7 +2,7 @@
 .gradle/
 build/
 # tmp
-doc_slide/
+docs_slide/
 
 # Local configuration file (sdk path, etc)
 local.properties
