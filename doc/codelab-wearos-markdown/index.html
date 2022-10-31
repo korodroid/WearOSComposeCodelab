@@ -1,0 +1,166 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Building for WearOS Apps Codelab</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="codelab-wearos-markdown"
+                  title="Building for WearOS Apps Codelab"
+                  environment="web"
+                  feedback-link="https://github.com/korodroid/hoge">
+    
+      <google-codelab-step label="Introduction" duration="5">
+        <p>This Codelab explains how to develop WearOS Apps with Jetpack Compose.</p>
+<p>&#34;Compose for Wear OS&#34; simplifies and accelerates UI development and helps you create beautiful apps with less code. Currently, it&#39;s the most recommended approach for Wear OS Apps Development.</p>
+<p>For this codelab, we expect that you have some knowledge of Compose and Kotlin, but you certainly don&#39;t need to be an expert.</p>
+<p>At this codelab, it starts from the basic sample. And you will learn how to improve Wear OS apps with Jetpack Compose little by little. Finally, you can start writing your own apps for Wear OS. Let&#39;s get started!</p>
+<h2 is-upgraded>Wear OS Apps Examples</h2>
+<p class="image-container"><img alt="Sample1" src="img/cd6ef580293f5c88.png"><img alt="Sample2" src="img/7df3237428a33062.png"></p>
+<h2 is-upgraded>What you will learn</h2>
+<ul>
+<li>How to get started Wear OS Apps Development with Jetpack Compose</li>
+<li>Similarities/differences between Mobile and WearOS experience with Jetpack Compose</li>
+<li>Basic Wear OS composables</li>
+<li>How to optimize screens for Wear OS</li>
+<li>How to get improve Wear OS UI &amp; UX with useful composables</li>
+</ul>
+<h2 is-upgraded>What you will build</h2>
+<p>At first, you&#39;ll build a simple app that displays just a scrollable list of composables. It&#39;s just like a simple Contacts App. But there are some problems. Screens aren&#39;t opzimized for Wear OS. It includes only one screen. Also, it doesn&#39;t include any navigations.</p>
+<p>Here are some steps for improving UI &amp; UX.</p>
+<p>By modifing the code little by little, finally you&#39;ll find how we develop the Wear OS screens.</p>
+<p>Because you will be using Scaffold, you&#39;ll also get a curved text time at the top, a vignette, and finally a scrolling indicator tied to the side of the device.</p>
+<p>Here&#39;s what it will look like when you are finished with the code lab:</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Getting Set Up (in advance)" duration="0">
+        <h2 is-upgraded>What you will need</h2>
+<ul>
+<li>Android Studio  <ul>
+<li>Mandatory: Dolphin, Electric Eel or Flamingo</li>
+<li>Recommended (On this workshop): Electric Eel</li>
+</ul>
+</li>
+<li>Wear OS AVD images  <ul>
+<li>Recommended: API Level 30</li>
+</ul>
+</li>
+</ul>
+<h2 is-upgraded>How to prepare Wear OS AVD</h2>
+<p class="image-container"><img alt="Preparation" src="img/ab232c5143da38ab.mov"></p>
+<h2 is-upgraded>Download code</h2>
+<p>If you have git installed, you can simply run the command below to clone the code from <a href="https://github.com/korodroid/WearOSComposeCodelab" target="_blank">this repo</a>. To check whether git is installed, type <code>git --version</code> in the terminal or command line and verify that it executes correctly.</p>
+<pre><code>git clone https://github.com/korodroid/WearOSComposeCodelab.git
+cd WearOSComposeCodelab
+</code></pre>
+<p>If you do not have git, you can click the following button to download all the code for this codelab:</p>
+<p><a href="https://github.com/korodroid/WearOSComposeCodelab/archive/refs/heads/main.zip" target="_blank"><paper-button class="colored" raised><iron-icon icon="file-download"></iron-icon>Download ZIP</paper-button></a></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Run the Base App" duration="10">
+        <h2 is-upgraded>Open project in Android Studio</h2>
+<ol type="1">
+<li>On the Welcome to Android Studio window select <img alt="folder" src="img/c01826594f360d94.png"> Open an Existing Project</li>
+<li>Select the folder <code>[Download Location]</code></li>
+<li>When Android Studio has imported the project, test that you can run the <code>start</code> and <code>finished</code> modules on a Wear OS emulator or physical device.</li>
+<li>The <code>start</code> module should look like the screenshot below. It&#39;s where you will be doing all your work.</li>
+</ol>
+<p class="image-container"><img alt="1stStep" src="img/4cf9b27f1b3c7c.png"></p>
+<h2 is-upgraded>Explore the start code</h2>
+<ul>
+<li><strong>build.gradle</strong> contains a basic app configuration. It includes the dependencies necessary to create a Composable Wear OS App. We&#39;ll discuss what&#39;s similar and different between Jetpack Compose and the Wear OS version.</li>
+<li><strong>main &gt; AndroidManifest.xml</strong> includes the elements necessary to create a Wear OS application. This is the same as a non-Compose app and similar to a mobile app, so we won&#39;t review this.</li>
+<li><strong>main &gt; theme/</strong> folder contains the Color, Type, and Theme files used by Compose for the theme.</li>
+<li><strong>main &gt; MainActivity.kt</strong> contains boilerplate for creating an app with Compose. It also contains the top-level composables (like the Scaffold and ScalingLazyList) for our app.</li>
+</ul>
+<h2 is-upgraded>Result</h2>
+<aside class="special"><p>You can also refer an answer (<code>start</code> module)</p>
+</aside>
+<p class="image-container"><img alt="1stStep" src="img/b7a408a223452d5c.mov"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Step1" duration="10">
+        <p>TBD (In a short word, <code>Replacing to ScalingLazyColumn</code>)</p>
+<h2 is-upgraded>Result</h2>
+<aside class="special"><p>You can also refer an answer (<code>step1</code> module)</p>
+</aside>
+<p class="image-container"><img alt="Step1" src="img/b7a408a223452d5c.mov"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Step2" duration="10">
+        <p>TBD (In a short word, <code>Using Scaffold</code>)</p>
+<h2 is-upgraded>Result</h2>
+<aside class="special"><p>You can also refer an answer (<code>step2</code> module)</p>
+</aside>
+<p class="image-container"><img alt="Step2" src="img/996adb93f78c6a14.mov"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Step3" duration="10">
+        <h2 is-upgraded>What we&#39;d like to develop</h2>
+<p class="image-container"><img alt="Step3" src="img/a3b82e00bb995faa.png"></p>
+<p>TBD (In a short word, <code>Adding a new Screen</code>)</p>
+<h2 is-upgraded>Result</h2>
+<aside class="special"><p>You can also refer an answer (<code>step3</code> module)</p>
+</aside>
+<p class="image-container"><img alt="Step3" src="img/87243218945aaeac.mov"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Step4" duration="10">
+        <p>TBD (In a short word, <code>Implementing Navigation</code>)</p>
+<h2 is-upgraded>Result</h2>
+<aside class="special"><p>You can also refer an answer (<code>step4</code> module)</p>
+</aside>
+<p class="image-container"><img alt="Step4" src="img/e818a595d4a9dcac.mov"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Step5" duration="10">
+        <p>TBD (In a short word, <code>Replacing to Wear Navigation</code>)</p>
+<h2 is-upgraded>Result</h2>
+<aside class="special"><p>You can also refer an answer (<code>finished</code> module)</p>
+</aside>
+<p class="image-container"><img alt="Finished" src="img/bb6d45640f46ae90.mov"></p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>
