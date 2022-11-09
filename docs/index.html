@@ -1,3 +1,6 @@
+
+<!doctype html>
+
 <html>
 <head>
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
@@ -6,7 +9,7 @@
   <title>Building for WearOS Apps Codelab</title>
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
   <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements-tmp/codelab-elements.css">
   <style>
     .success {
       color: #1e8e3e;
@@ -39,12 +42,19 @@
 <li>How to optimize screens for Wear OS</li>
 <li>How to get improve Wear OS UI &amp; UX with useful composables</li>
 </ul>
+<h2 is-upgraded>Prerequisites</h2>
+<ul>
+<li>Basic understanding of <a href="https://developer.android.com/" target="_blank">Android development</a></li>
+<li>Basic understanding of <a href="https://developer.android.com/kotlin" target="_blank">Kotlin</a></li>
+<li>Basic knowledge of <a href="https://developer.android.com/jetpack/compose" target="_blank">Compose</a></li>
+</ul>
 <h2 is-upgraded>What you will build</h2>
 <p>At first, you&#39;ll build a simple app that displays just a scrollable list of composables. It&#39;s just like a simple Contacts App. But there are some problems. Screens aren&#39;t opzimized for Wear OS. It includes only one screen. Also, it doesn&#39;t include any navigations.</p>
 <p>Here are some steps for improving UI &amp; UX.</p>
 <p>By modifing the code little by little, finally you&#39;ll find how we develop the Wear OS screens.</p>
 <p>Because you will be using Scaffold, you&#39;ll also get a curved text time at the top, a vignette, and finally a scrolling indicator tied to the side of the device.</p>
 <p>Here&#39;s what it will look like when you are finished with the code lab:</p>
+<p class="image-container"><img alt="Preparation" src="img/d72018f2e2ef4b95.gif"></p>
 
 
       </google-codelab-step>
@@ -54,16 +64,16 @@
 <ul>
 <li>Android Studio  <ul>
 <li>Mandatory: Dolphin, Electric Eel or Flamingo</li>
-<li>Recommended (On this workshop): Electric Eel</li>
+<li>Recommendation for this workshop: Electric Eel</li>
 </ul>
 </li>
 <li>Wear OS AVD images  <ul>
-<li>Recommended: API Level 30</li>
+<li>Recommendation for this workshop: API Level 30</li>
 </ul>
 </li>
 </ul>
-<h2 is-upgraded>How to prepare Wear OS AVD</h2>
-<p class="image-container"><img alt="Preparation" src="img/ab232c5143da38ab.mov"></p>
+<h2 is-upgraded>How to create Wear OS AVD</h2>
+<p class="image-container"><img alt="Preparation" src="img/d5099be7dda3629a.gif"></p>
 <h2 is-upgraded>Download code</h2>
 <p>If you have git installed, you can simply run the command below to clone the code from <a href="https://github.com/korodroid/WearOSComposeCodelab" target="_blank">this repo</a>. To check whether git is installed, type <code>git --version</code> in the terminal or command line and verify that it executes correctly.</p>
 <pre><code>git clone https://github.com/korodroid/WearOSComposeCodelab.git
@@ -80,11 +90,11 @@ cd WearOSComposeCodelab
 <ol type="1">
 <li>On the Welcome to Android Studio window select <img alt="folder" src="img/c01826594f360d94.png"> Open an Existing Project</li>
 <li>Select the folder <code>[Download Location]</code></li>
-<li>When Android Studio has imported the project, test that you can run the <code>start</code> and <code>finished</code> modules on a Wear OS emulator or physical device.</li>
-<li>The <code>start</code> module should look like the screenshot below. It&#39;s where you will be doing all your work.</li>
+<li>When Android Studio has imported the project, test that you can run the <code>start</code> and <code>finished</code> modules on a Wear OS emulator or physical device. Also, there are some modules <code>step1</code>, <code>step2</code>, <code>step3</code> and <code>step4</code> for each step.</li>
+<li>The modules should look like the screenshot below. <img alt="1stStep" src="img/dad6b80cfbafca1e.png"></li>
+<li>Choose <code>start</code> module. It&#39;s where you will be doing all your work. <img alt="1stStep" src="img/8fe0b8b61620b467.png"></li>
 </ol>
-<p class="image-container"><img alt="1stStep" src="img/4cf9b27f1b3c7c.png"></p>
-<h2 is-upgraded>Explore the start code</h2>
+<h2 is-upgraded>Explore the <code>start</code> code</h2>
 <ul>
 <li><strong>build.gradle</strong> contains a basic app configuration. It includes the dependencies necessary to create a Composable Wear OS App. We&#39;ll discuss what&#39;s similar and different between Jetpack Compose and the Wear OS version.</li>
 <li><strong>main &gt; AndroidManifest.xml</strong> includes the elements necessary to create a Wear OS application. This is the same as a non-Compose app and similar to a mobile app, so we won&#39;t review this.</li>
@@ -94,69 +104,298 @@ cd WearOSComposeCodelab
 <h2 is-upgraded>Result</h2>
 <aside class="special"><p>You can also refer an answer (<code>start</code> module)</p>
 </aside>
-<p class="image-container"><img alt="1stStep" src="img/b7a408a223452d5c.mov"></p>
+<p class="image-container"><img alt="Step0" src="img/d948f2e0d7737500.gif"></p>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="Step1" duration="10">
-        <p>TBD (In a short word, <code>Replacing to ScalingLazyColumn</code>)</p>
-<h2 is-upgraded>Result</h2>
-<aside class="special"><p>You can also refer an answer (<code>step1</code> module)</p>
+        <aside class="special"><p>In a short word, <code>Setting your name on the list</code> and <code>Replacing LazyColumn with ScalingLazyColumn</code>.</p>
 </aside>
-<p class="image-container"><img alt="Step1" src="img/b7a408a223452d5c.mov"></p>
+<p>We will do all our work in the</p>
+<p><code>start</code></p>
+<p>module, so make sure every file you open is in there.</p>
+<p>Let&#39;s start by opening <code>MainActivity</code> in this module.</p>
+<p>This is a class that extends <code>ComponentActivity</code> and uses <code>setContent { WearApp() }</code> to create the UI.</p>
+<p>Scroll down to the this part like this.</p>
+<pre><code language="language-kotlin" class="language-kotlin">val model = ContactDataList(
+    data = listOf(
+        ContactData(name = &#34;Your Name&#34;, phone = &#34;+81-3-0000-XXXX&#34;, nation = &#34;Your Nation&#34;),
+        ContactData(name = &#34;Kenichi&#34;, phone = &#34;+81-3-1111-XXXX&#34;, nation = &#34;US&#34;),
+        ContactData(name = &#34;Josh&#34;, phone = &#34;+1-3-2222-XXXX&#34;, nation = &#34;Kenya&#34;),
+        // ...
+)
+</code></pre>
+<p>If you don&#39;t enable your preview screen, just tap the <strong>Preview</strong> button like this. You can check your screen without compiling.</p>
+<p class="image-container"><img alt="Step1-1" src="img/f865d65657224323.png"></p>
+<p>Let&#39;s set your name, phone number (should be dummy) and nation on <strong>the first element</strong> like this.</p>
+<pre><code language="language-kotlin" class="language-kotlin">val model = ContactDataList(
+    data = listOf(
+        ContactData(name = &#34;Frank&#34;, phone = &#34;+1-3-8888-XXXX&#34;, nation = &#34;Kenya&#34;),
+        ContactData(name = &#34;Kenichi&#34;, phone = &#34;+81-3-1111-XXXX&#34;, nation = &#34;US&#34;),
+        ContactData(name = &#34;Josh&#34;, phone = &#34;+1-3-2222-XXXX&#34;, nation = &#34;Kenya&#34;),
+        // ...
+)
+</code></pre>
+<p>You&#39;ll be able to see the change in real time like this.</p>
+<p class="image-container"><img alt="Step1-2" src="img/a7f269e9c3152aa4.png"></p>
+<p>Search for <strong>ContactListScreenV0</strong> and replace <code>LazyColumn</code> with <code>ScalingLazyColumn</code> like this.</p>
+<pre><code language="language-kotlin" class="language-kotlin">ScalingLazyColumn {
+    item {
+        ListHeader {
+            Text(text = &#34;Contacts&#34;)
+        }
+    }
+// ...
+</code></pre>
+<h2 is-upgraded>Result</h2>
+<p>Your screen should be improved like this.</p>
+<p class="image-container"><img alt="Step1" src="img/15cba13aa819ac3b.gif"></p>
+<p>But there are still some problems.</p>
+<aside class="special"><p>You can also refer an answer (On <code>step1</code> module, <code>ContactListScreenV1()</code> function)</p>
+</aside>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="Step2" duration="10">
-        <p>TBD (In a short word, <code>Using Scaffold</code>)</p>
-<h2 is-upgraded>Result</h2>
-<aside class="special"><p>You can also refer an answer (<code>step2</code> module)</p>
+        <aside class="special"><p>In a short word, <code>Using a Scaffold</code>.</p>
 </aside>
-<p class="image-container"><img alt="Step2" src="img/996adb93f78c6a14.mov"></p>
+<p>Here are three essential points to develop a better UI for Wear OS.</p>
+<ul>
+<li><strong>TimeText</strong></li>
+<li><strong>Vignette</strong></li>
+<li><strong>PositionIndicator</strong></li>
+</ul>
+<p>Using a <code>Scaffold</code> , you can easily implement them.</p>
+<p>Search for <strong>ContactListScreenV0</strong> and implement like this.</p>
+<pre><code language="language-kotlin" class="language-kotlin">val listState = rememberScalingLazyListState()
+    Scaffold(
+        timeText = {
+            if (!listState.isScrollInProgress) {
+                TimeText()
+            }
+        },
+        vignette = {
+            Vignette(
+                vignettePosition = VignettePosition.TopAndBottom
+            )
+        },
+        positionIndicator = {
+            PositionIndicator(
+                scalingLazyListState = listState,
+            )
+        }
+    ) {
+        ScalingLazyColumn(state = listState) {
+            item {
+                ListHeader {
+                    Text(text = &#34;Contacts&#34;)
+                }
+            }
+            items(model.data.size) {
+                Chip(
+                    modifier = Modifier
+                        .fillMaxSize(),
+                    icon = {
+                        Icon(
+                            Icons.Rounded.Face,
+                            contentDescription = &#34;faceIcon&#34;,
+                        )
+                    },
+                    label = { Text(model.data[it].name) },
+                    colors = ChipDefaults.primaryChipColors(),
+                    onClick = { },
+                )
+            }
+        }
+    }
+</code></pre>
+<h2 is-upgraded>Result</h2>
+<p>Your screen should be improved like this. This new screen includes TimeText, Vignette and PositionIndicator.</p>
+<p class="image-container"><img alt="Step2" src="img/ccd628cbde0a66bb.gif"></p>
+<p>But this app includes only one screen. So we cannot check each contact detail.</p>
+<aside class="special"><p>You can also refer an answer (On <code>step2</code> module, <code>ContactListScreenV2()</code> function)</p>
+</aside>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="Step3" duration="10">
-        <h2 is-upgraded>What we&#39;d like to develop</h2>
-<p class="image-container"><img alt="Step3" src="img/a3b82e00bb995faa.png"></p>
-<p>TBD (In a short word, <code>Adding a new Screen</code>)</p>
-<h2 is-upgraded>Result</h2>
-<aside class="special"><p>You can also refer an answer (<code>step3</code> module)</p>
+        <aside class="special"><p>In a short word, <code>Adding a new Screen</code>.</p>
 </aside>
-<p class="image-container"><img alt="Step3" src="img/87243218945aaeac.mov"></p>
+<h2 is-upgraded>What we&#39;d like to develop</h2>
+<p class="image-container"><img alt="Step3" src="img/a3b82e00bb995faa.png"></p>
+<p>Let&#39;s add a new screen, the Contact Detail screen. Search for <strong>ContactDetailScreen</strong> and implement like this.</p>
+<pre><code language="language-kotlin" class="language-kotlin">@Composable
+fun ContactDetailScreen(id: Int) {
+    // Add your STEP3 code here
+    Chip(
+        modifier = Modifier
+            .fillMaxSize(),
+        icon = {
+            Icon(
+                Icons.Rounded.Face,
+                contentDescription = &#34;faceIcon&#34;,
+            )
+        },
+        label = {
+            Column(
+            ) {
+                Text(text = model.data[id].name, fontWeight = FontWeight.Bold)
+                Text(text = model.data[id].phone)
+                Text(text = model.data[id].nation)
+            }
+        },
+        colors = ChipDefaults.primaryChipColors(),
+        onClick = { /* do anything */ },
+    )
+}
+</code></pre>
+<p>To confirm the new screen, change the content of <code>WearApp()</code> like this.</p>
+<pre><code language="language-kotlin" class="language-kotlin">@Composable
+fun WearApp() {
+    WearOSComposeCodelabTheme {
+        ContactDetailScreen(0)
+    }
+}
+</code></pre>
+<h2 is-upgraded>Result</h2>
+<p>You&#39;ll be able to see the change like this.</p>
+<p class="image-container"><img alt="Step3-1" src="img/a45d081c7f369c16.png"></p>
+<p>But this app doesn&#39;t include any Navigation features. So we cannot move to another screen.</p>
+<aside class="special"><p>You can also refer an answer (On <code>step3</code> module, <code>ContactDetailScreen()</code> function)</p>
+</aside>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="Step4" duration="10">
-        <p>TBD (In a short word, <code>Implementing Navigation</code>)</p>
-<h2 is-upgraded>Result</h2>
-<aside class="special"><p>You can also refer an answer (<code>step4</code> module)</p>
+        <aside class="special"><p>In a short word, <code>Implementing Navigation</code>.</p>
 </aside>
-<p class="image-container"><img alt="Step4" src="img/e818a595d4a9dcac.mov"></p>
+<p>Let&#39;s add a new Navigation feature to move to another screen. First, search for <strong>ContactListScreenV0</strong> and add an argument like this.</p>
+<pre><code language="language-kotlin" class="language-kotlin">@Composable
+fun ContactListScreenV0(navController: NavHostController) {
+    // ...
+}
+</code></pre>
+<p>Next, on <code>ScalingLazyColumn</code> part, add implementation like this.</p>
+<pre><code language="language-kotlin" class="language-kotlin">Chip(
+    // ...
+
+    onClick = { navController.navigate(&#34;contact_detail/$it&#34;) },
+)
+</code></pre>
+<p>Finally, let&#39;s add the Navigation feature. Search for <strong>ScreenNavigationV4</strong> and implement like this.</p>
+<pre><code language="language-kotlin" class="language-kotlin">@Composable
+fun ScreenNavigationV4(
+    navController: NavHostController = rememberNavController()
+) {
+    // Add your STEP4 code here
+    NavHost(
+        navController = navController,
+        startDestination = &#34;contact_list&#34;
+    ) {
+        composable(&#34;contact_list&#34;) {
+            ContactListScreenV0(navController = navController)
+        }
+        composable(&#34;contact_detail/{id}&#34;) {
+            val id = it.arguments?.getString(&#34;id&#34;)!!
+            ContactDetailScreen(id = id.toInt())
+        }
+    }
+}
+</code></pre>
+<p>To change the launch screen, change the content of <code>WearApp()</code> like this.</p>
+<pre><code language="language-kotlin" class="language-kotlin">@Composable
+fun WearApp() {
+    WearOSComposeCodelabTheme {
+        ScreenNavigationV4()
+    }
+}
+</code></pre>
+<h2 is-upgraded>Result</h2>
+<p>Let&#39;s launch the app on the Emulator or the real device. You&#39;ll be able to move to another screen like this.</p>
+<p class="image-container"><img alt="Step4" src="img/cce9eda4ce5e83c7.gif"></p>
+<p>But if you try to move back to the previous screen, you won&#39;t able to do that. It&#39;s because there is still a problem.</p>
+<aside class="special"><p>You can also refer an answer (On <code>step4</code> module, <code>ContactListScreenV4()</code> and <code>ScreenNavigationV4()</code> function)</p>
+</aside>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="Step5" duration="10">
-        <p>TBD (In a short word, <code>Replacing to Wear Navigation</code>)</p>
-<h2 is-upgraded>Result</h2>
-<aside class="special"><p>You can also refer an answer (<code>finished</code> module)</p>
+        <aside class="special"><p>In a short word, <code>Replacing Regular Navigation with Wear Navigation</code>.</p>
 </aside>
-<p class="image-container"><img alt="Finished" src="img/bb6d45640f46ae90.mov"></p>
+<p>Here is an important point to develop a Navigation feature for Wear OS. Using the Wear Navigation instead of the Regular Navigation is required.</p>
+<p>Let&#39;s import the Wear Navigation library by opening <code>build.gradle</code> under  this module. Modify like this. It means that disabling <strong>Non Wear Navigation Part</strong> and enabling <strong>Wear Navigation Part</strong>. Afther that, sync the project to import the new library.</p>
+<pre><code language="language-gradle" class="language-gradle">// Non Wear Navigation
+//    def nav_version = &#34;2.5.2&#34;
+//    implementation &#34;androidx.navigation:navigation-compose:$nav_version&#34;
+// Wear Navigation
+implementation &#34;androidx.wear.compose:compose-navigation:$wear_compose_version&#34;
+</code></pre>
+<p>You&#39;ll see some errors on <code>MainActivity</code>. It means we have to change <strong>some import definitions</strong> like this.</p>
+<pre><code language="language-gradle" class="language-gradle">// for supporting Non-Wear Navigation --from--
+//import androidx.navigation.NavHost
+//import androidx.navigation.NavHostController
+//import androidx.navigation.compose.NavHost
+//import androidx.navigation.compose.rememberNavController
+//import androidx.navigation.compose.composable
+// for supporting Non-Wear Navigation --to--
+// for supporting Wear Navigation --from-
+import androidx.wear.compose.navigation.SwipeDismissableNavHost
+import androidx.wear.compose.navigation.composable
+import androidx.navigation.NavHostController
+import androidx.wear.compose.navigation.rememberSwipeDismissableNavController
+// for supporting Wear Navigation --to--
+</code></pre>
+<p>Maybe you&#39;ll still see some errors. Don&#39;t take care. On <code>ScreenNavigationV4()</code> function, change your code like this. Instead of using <code>rememberNavController()</code>, use <code>rememberSwipeDismissableNavController()</code>.</p>
+<pre><code language="language-kotlin" class="language-kotlin">fun ScreenNavigationV4(
+    navController: NavHostController = rememberSwipeDismissableNavController()
+) {
+    SwipeDismissableNavHost(
+        navController = navController,
+        startDestination = &#34;contact_list&#34;
+    ) {
+        composable(&#34;contact_list&#34;) {
+            ContactListScreenV4(navController = navController)
+        }
+        composable(&#34;contact_detail/{id}&#34;) {
+            val id = it.arguments?.getString(&#34;id&#34;)!!
+            ContactDetailScreen(id = id.toInt())
+        }
+    }
+}
+)
+</code></pre>
+<h2 is-upgraded>Result</h2>
+<p>Let&#39;s launch the app on the Emulator or the real device again. You&#39;ll be able to move to another screen and back to the previous screen like this.</p>
+<p class="image-container"><img alt="Finished" src="img/d72018f2e2ef4b95.gif"></p>
+<p>Congratulations! That&#39;s it.</p>
+<aside class="special"><p>You can also refer an answer (On <code>finished</code> module, <code>ContactListScreenV5()</code> function)</p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="See also" duration="0">
+        <p>You learned how to build and improve your app for Wear OS! Here are some more ufeful materials by Google.</p>
+<ul>
+<li><a href="https://codelabs.developers.google.com/?cat=flutter&product=wearos" target="_blank">Codelabs for Wear OS by Google</a></li>
+</ul>
+<p>We made this tutorial with reference to them.</p>
+<p>Happy Wear OS Apps coding!</p>
 
 
       </google-codelab-step>
     
   </google-codelab>
 
-  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
-  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
-  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
-  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements-tmp/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements-tmp/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements-tmp/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements-tmp/codelab-elements.js"></script>
   <script src="//support.google.com/inapp/api.js"></script>
 
 </body>
