@@ -19,7 +19,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
-/*
 // for supporting Non-Wear Navigation --from--
 import androidx.navigation.NavHost
 import androidx.navigation.NavHostController
@@ -27,13 +26,15 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.compose.composable
 // for supporting Non-Wear Navigation --to--
- */
 import androidx.wear.compose.material.*
 // for supporting Wear Navigation --from--
-import androidx.wear.compose.navigation.SwipeDismissableNavHost
-import androidx.wear.compose.navigation.composable
-import androidx.navigation.NavHostController
-import androidx.wear.compose.navigation.rememberSwipeDismissableNavController
+//import androidx.wear.compose.navigation.SwipeDismissableNavHost
+//import androidx.wear.compose.navigation.composable
+//import androidx.navigation.NavHostController
+//import androidx.navigation.compose.NavHost
+//import androidx.navigation.compose.composable
+//import androidx.navigation.compose.rememberNavController
+//import androidx.wear.compose.navigation.rememberSwipeDismissableNavController
 // for supporting Wear Navigation --to--
 import com.example.hellowearoscompose.model.ContactData
 import com.example.hellowearoscompose.model.ContactDataList
@@ -146,7 +147,7 @@ fun ContactListScreenV4(navController: NavHostController) {
  */
 @Composable
 fun ScreenNavigationV4(
-//    navController: NavHostController = rememberNavController()
+    navController: NavHostController = rememberNavController()
 ) {
     // Add your STEP4 code here
 }
@@ -156,7 +157,7 @@ fun ScreenNavigationV4(
  */
 @Composable
 fun ScreenNavigationV5(
-    navController: NavHostController = rememberSwipeDismissableNavController()
+//    navController: NavHostController = rememberSwipeDismissableNavController()
 ) {
     // Add your STEP5 code here
 }

@@ -62,10 +62,10 @@ dependencies {
     implementation "androidx.compose.material:material-icons-core:$wear_compose_version"
     implementation "androidx.compose.material:material-icons-extended:$wear_compose_version"
     // Non Wear Navigation
-//        def nav_version = "2.5.2"
-//        implementation "androidx.navigation:navigation-compose:$nav_version"
+    def nav_version = "2.5.2"
+    implementation "androidx.navigation:navigation-compose:$nav_version"
     // Wear Navigation
-    implementation "androidx.wear.compose:compose-navigation:$wear_compose_version"
+    // implementation "androidx.wear.compose:compose-navigation:$wear_compose_version"
     // diff --here--
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
