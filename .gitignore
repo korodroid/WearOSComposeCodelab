@@ -3,7 +3,7 @@
 build/
 # tmp
 docs_slide/
-docs_src/
+# docs_src/
 docs_src_backup/
 
 # Local configuration file (sdk path, etc)
