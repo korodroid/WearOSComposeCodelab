@@ -31,9 +31,6 @@ import androidx.wear.compose.material.*
 //import androidx.wear.compose.navigation.SwipeDismissableNavHost
 //import androidx.wear.compose.navigation.composable
 //import androidx.navigation.NavHostController
-//import androidx.navigation.compose.NavHost
-//import androidx.navigation.compose.composable
-//import androidx.navigation.compose.rememberNavController
 //import androidx.wear.compose.navigation.rememberSwipeDismissableNavController
 // for supporting Wear Navigation --to--
 import com.example.hellowearoscompose.model.ContactData
