@@ -3,9 +3,9 @@
   "format": "html",
   "prefix": "https://storage.googleapis.com",
   "mainga": "UA-49880327-14",
-  "updated": "2022-11-11T11:15:25+09:00",
+  "updated": "2022-11-11T11:26:57+09:00",
   "id": "codelab-wearos-markdown",
-  "duration": 45,
+  "duration": 35,
   "title": "Building for WearOS Apps Codelab",
   "summary": "Wear OS Codelab",
   "source": "codelab.md",
@@ -20,6 +20,6 @@
   "tags": [
     "wearable"
   ],
-  "feedback": "https://github.com/korodroid/hoge",
+  "feedback": "https://github.com/korodroid/WearOSComposeCodelab",
   "url": "codelab-wearos-markdown"
 }
