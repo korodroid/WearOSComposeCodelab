@@ -54,7 +54,7 @@ class MainActivity : ComponentActivity() {
 val model = ContactDataList(
     data = listOf(
         ContactData(name = "Your Name", phone = "+81-3-0000-XXXX", nation = "Your Nation"),
-        ContactData(name = "Kenichi", phone = "+81-3-1111-XXXX", nation = "US"),
+        ContactData(name = "Kenichi", phone = "+81-3-1111-XXXX", nation = "Japan"),
         ContactData(name = "Josh", phone = "+1-3-2222-XXXX", nation = "Kenya"),
         ContactData(name = "Mary", phone = "+44-3-3333-XXXX", nation = "UK"),
         ContactData(name = "Susan", phone = "+43-3-4444-XXXX", nation = "Australia"),
