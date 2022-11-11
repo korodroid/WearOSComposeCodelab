@@ -31,7 +31,7 @@
         <p>This Codelab explains how to develop WearOS Apps with Jetpack Compose.</p>
 <p>&#34;Compose for Wear OS&#34; simplifies and accelerates UI development and helps you create beautiful apps with less code. Currently, it&#39;s the most recommended approach for Wear OS Apps Development.</p>
 <p>For this codelab, we expect that you have some knowledge of Compose and Kotlin, but you certainly don&#39;t need to be an expert.</p>
-<p>At this codelab, it starts from the basic sample. And you will learn how to improve Wear OS apps with Jetpack Compose little by little. Finally, you can start writing your own apps for Wear OS. Let&#39;s get started!</p>
+<p>At this codelab, it starts from the basic sample. And you will learn how to improve Wear OS apps with Jetpack Compose little by little. Finally, you can begin writing your apps for Wear OS. Let&#39;s get started!</p>
 <h2 is-upgraded>Wear OS Apps Examples</h2>
 <p class="image-container"><img alt="Sample1" src="img/cd6ef580293f5c88.png"><img alt="Sample2" src="img/7df3237428a33062.png"></p>
 <h2 is-upgraded>What you will learn</h2>
@@ -40,7 +40,7 @@
 <li>Similarities/differences between Mobile and WearOS experience with Jetpack Compose</li>
 <li>Basic Wear OS composables</li>
 <li>How to optimize screens for Wear OS</li>
-<li>How to get improve Wear OS UI &amp; UX with useful composables</li>
+<li>How to improve Wear OS UI &amp; UX with useful composables</li>
 </ul>
 <h2 is-upgraded>Prerequisites</h2>
 <ul>
@@ -49,11 +49,11 @@
 <li>Basic knowledge of <a href="https://developer.android.com/jetpack/compose" target="_blank">Compose</a></li>
 </ul>
 <h2 is-upgraded>What you will build</h2>
-<p>At first, you&#39;ll build a simple app that displays just a scrollable list of composables. It&#39;s just like a simple Contacts App. But there are some problems. Screens aren&#39;t opzimized for Wear OS. It includes only one screen. Also, it doesn&#39;t include any navigations.</p>
+<p>At first, you&#39;ll build a simple app that displays just a scrollable list of composables. It&#39;s just like a simple Contacts App. But there are some problems. Screens aren&#39;t optimized for Wear OS. It includes only one screen. Also, it doesn&#39;t contain any navigation.</p>
 <p>Here are some steps for improving UI &amp; UX.</p>
-<p>By modifing the code little by little, finally you&#39;ll find how we develop the Wear OS screens.</p>
-<p>Because you will be using Scaffold, you&#39;ll also get a curved text time at the top, a vignette, and finally a scrolling indicator tied to the side of the device.</p>
-<p>Here&#39;s what it will look like when you are finished with the code lab:</p>
+<p>By modifying the code little by little, finally, you&#39;ll find how we develop the Wear OS screens.</p>
+<p>Because you will be using Scaffold, you&#39;ll also get a curved text time at the top, a vignette, and a scrolling indicator tied to the side of the device.</p>
+<p>Here&#39;s what it will look like when you finish this codelab:</p>
 <p class="image-container"><img alt="Preparation" src="img/d72018f2e2ef4b95.gif"></p>
 
 
@@ -63,7 +63,7 @@
         <h2 is-upgraded>What you will need</h2>
 <ul>
 <li>Android Studio  <ul>
-<li>Mandatory: Dolphin, Electric Eel or Flamingo</li>
+<li>Mandatory: Dolphin, Electric Eel, or Flamingo</li>
 <li>Recommendation for this workshop: Electric Eel</li>
 </ul>
 </li>
@@ -86,9 +86,9 @@ cd WearOSComposeCodelab
 <h2 is-upgraded>Run the Base App</h2>
 <h3 is-upgraded>Open project in Android Studio</h3>
 <ol type="1">
-<li>On the Welcome to Android Studio window select <img alt="folder" src="img/c01826594f360d94.png"> Open an Existing Project</li>
+<li>On the Welcome to Android Studio window, select <img alt="folder" src="img/c01826594f360d94.png"> Open an Existing Project.</li>
 <li>Select the folder <code>[Download Location]</code></li>
-<li>When Android Studio has imported the project, test that you can run the <code>start</code> and <code>finished</code> modules on a Wear OS emulator or physical device. Also, there are some modules <code>step1</code>, <code>step2</code>, <code>step3</code> and <code>step4</code> for each step.</li>
+<li>When Android Studio has imported the project, test that you can run the <code>start</code> and <code>finished</code> modules on a Wear OS emulator or physical device. Also, there are some modules such as <code>step1</code>, <code>step2</code>, <code>step3</code>, and <code>step4</code> for each step.</li>
 <li>The modules should look like the screenshot below. <img alt="1stStep" src="img/dad6b80cfbafca1e.png"></li>
 <li>Choose <code>start</code> module. It&#39;s where you will be doing all your work. And just tap the <code>Run(Green Triangle)</code> button like this.</li>
 </ol>
@@ -116,7 +116,7 @@ cd WearOSComposeCodelab
 </ul>
 <p>Let&#39;s start by opening <code>MainActivity</code> in this module.</p>
 <p>This is a class that extends <code>ComponentActivity</code> and uses <code>setContent { WearApp() }</code> to create the UI.</p>
-<p>Scroll down to the this part like this.</p>
+<p>Scroll down to this part like this.</p>
 <pre><code language="language-kotlin" class="language-kotlin">val model = ContactDataList(
     data = listOf(
         ContactData(name = &#34;Your Name&#34;, phone = &#34;+81-3-0000-XXXX&#34;, nation = &#34;Your Nation&#34;),
@@ -127,7 +127,7 @@ cd WearOSComposeCodelab
 </code></pre>
 <p>If you don&#39;t enable your preview screen, just click the <strong>Split</strong> button like this. You can check your screen without compiling.</p>
 <p class="image-container"><img alt="Step1-1" src="img/65fbc414eb53fcc4.png"></p>
-<p>Let&#39;s set your name, phone number (should be dummy) and nation on <strong>the first element</strong> like this.</p>
+<p>Let&#39;s set your name, phone number (it should be a dummy), and nation on <strong>the first element</strong> like this.</p>
 <pre><code language="language-kotlin" class="language-kotlin">val model = ContactDataList(
     data = listOf(
         ContactData(name = &#34;Frank&#34;, phone = &#34;+1-3-8888-XXXX&#34;, nation = &#34;US&#34;),
@@ -136,7 +136,7 @@ cd WearOSComposeCodelab
         // ...
 )
 </code></pre>
-<p>You&#39;ll be able to see the change in real time like this.</p>
+<p>You&#39;ll be able to see the change in real-time like this.</p>
 <p class="image-container"><img alt="Step1-2" src="img/a7f269e9c3152aa4.png"></p>
 <p>Search for <strong>ContactListScreenV0</strong> and replace <code>LazyColumn</code> with <code>ScalingLazyColumn</code> like this.</p>
 <pre><code language="language-kotlin" class="language-kotlin">ScalingLazyColumn {
@@ -147,15 +147,15 @@ cd WearOSComposeCodelab
     }
 // ...
 </code></pre>
-<p>Here is a useful tip about <strong>preview feature</strong>. It&#39;s called <code>Interactive Mode</code>. On the preview screen, just click the <strong>Start Interactive Mode</strong> button like this. You can enable this feature and check your animation without launching an Emulator.</p>
+<p>Here is a helpful tip about <strong>the preview feature</strong>. It&#39;s called <code>Interactive Mode</code>. On the preview screen, just click the <strong>Start Interactive Mode</strong> button like this. You can enable this feature and check your animation without launching an Emulator.</p>
 <p class="image-container"><img alt="Step1-3" src="img/b4f20a7c44aceca6.png"></p>
 <p>Of course, you can disable this feature like this.</p>
 <p class="image-container"><img alt="Step1-4" src="img/b20bd8efb8193c4e.png"></p>
 <h2 is-upgraded>Result</h2>
-<p>Your screen should be improved like this. Of course, instead of using <strong>Interactive Mode</strong>, you can use an Emulator to check the behaviour.</p>
+<p>Your screen should be improved like this. Of course, instead of using <strong>Interactive Mode</strong>, you can use an Emulator to check the behavior.</p>
 <p class="image-container"><img alt="Step1" src="img/e2c0b1feca89d02.gif"></p>
 <p>But there are still some problems.</p>
-<aside class="special"><p>You can also refer an answer (On <code>step1</code> module, <code>ContactListScreenV1()</code> function)</p>
+<aside class="special"><p>You can also refer to an answer. (On <code>step1</code> module, <code>ContactListScreenV1()</code> function)</p>
 </aside>
 
 
@@ -170,8 +170,8 @@ cd WearOSComposeCodelab
 <li><strong>Vignette</strong></li>
 <li><strong>PositionIndicator</strong></li>
 </ul>
-<p>Using a <code>Scaffold</code> , you can easily implement them.</p>
-<p>Search for <strong>ContactListScreenV0</strong> and implement like this.</p>
+<p>Using a <code>Scaffold</code> , you can quickly implement them.</p>
+<p>Search for <strong>ContactListScreenV0</strong> and implement it like this.</p>
 <pre><code language="language-kotlin" class="language-kotlin">val listState = rememberScalingLazyListState()
     Scaffold(
         timeText = {
@@ -215,10 +215,10 @@ cd WearOSComposeCodelab
     }
 </code></pre>
 <h2 is-upgraded>Result</h2>
-<p>Your screen should be improved like this. This new screen includes TimeText, Vignette and PositionIndicator.</p>
+<p>Your screen should be improved like this. This new screen includes TimeText, Vignette, and PositionIndicator.</p>
 <p class="image-container"><img alt="Step2" src="img/ccd628cbde0a66bb.gif"></p>
 <p>But this app includes only one screen. So we cannot check each contact detail.</p>
-<aside class="special"><p>You can also refer an answer (On <code>step2</code> module, <code>ContactListScreenV2()</code> function)</p>
+<aside class="special"><p>You can also refer to an answer. (On <code>step2</code> module, <code>ContactListScreenV2()</code> function)</p>
 </aside>
 
 
@@ -229,7 +229,7 @@ cd WearOSComposeCodelab
 </aside>
 <h2 is-upgraded>What we&#39;d like to develop</h2>
 <p class="image-container"><img alt="Step3" src="img/c97c3d31420f3467.png"></p>
-<p>Let&#39;s add a new screen, the Contact Detail screen. Search for <strong>ContactDetailScreen</strong> and implement like this.</p>
+<p>Let&#39;s add a new screen, the Contact Detail screen. Search for <strong>ContactDetailScreen</strong> and implement it like this.</p>
 <pre><code language="language-kotlin" class="language-kotlin">@Composable
 fun ContactDetailScreen(id: Int) {
     // Add your STEP3 code here
@@ -267,7 +267,7 @@ fun WearApp() {
 <p>You&#39;ll be able to see the change like this.</p>
 <p class="image-container"><img alt="Step3-1" src="img/a45d081c7f369c16.png"></p>
 <p>But this app doesn&#39;t include any Navigation features. So we cannot move to another screen.</p>
-<aside class="special"><p>You can also refer an answer (On <code>step3</code> module, <code>ContactDetailScreen()</code> function)</p>
+<aside class="special"><p>You can also refer to an answer. (On <code>step3</code> module, <code>ContactDetailScreen()</code> function)</p>
 </aside>
 
 
@@ -282,14 +282,13 @@ fun ContactListScreenV0(navController: NavHostController) {
     // ...
 }
 </code></pre>
-<p>Next, on <code>ScalingLazyColumn</code> part, add implementation like this.</p>
+<p>Next, on the <code>ScalingLazyColumn</code> part, add an implementation like this.</p>
 <pre><code language="language-kotlin" class="language-kotlin">Chip(
     // ...
-
     onClick = { navController.navigate(&#34;contact_detail/$it&#34;) },
 )
 </code></pre>
-<p>Finally, let&#39;s add the Navigation feature. Search for <strong>ScreenNavigationV4</strong> and implement like this.</p>
+<p>Finally, let&#39;s add the Navigation feature. Search for <strong>ScreenNavigationV4</strong> and implement it like this.</p>
 <pre><code language="language-kotlin" class="language-kotlin">@Composable
 fun ScreenNavigationV4(
     navController: NavHostController = rememberNavController()
@@ -320,8 +319,8 @@ fun WearApp() {
 <h2 is-upgraded>Result</h2>
 <p>Let&#39;s launch the app on the Emulator or the real device. You&#39;ll be able to move to another screen like this.</p>
 <p class="image-container"><img alt="Step4" src="img/cce9eda4ce5e83c7.gif"></p>
-<p>But if you try to move back to the previous screen, you won&#39;t able to do that. It&#39;s because there is still a problem.</p>
-<aside class="special"><p>You can also refer an answer (On <code>step4</code> module, <code>ContactListScreenV4()</code> and <code>ScreenNavigationV4()</code> function)</p>
+<p>But if you try to move back to the previous screen, you won&#39;t be able to do that. So it&#39;s because there is still a problem.</p>
+<aside class="special"><p>You can also refer to an answer. (On <code>step4</code> module, <code>ContactListScreenV4()</code> and <code>ScreenNavigationV4()</code> function)</p>
 </aside>
 
 
@@ -330,7 +329,7 @@ fun WearApp() {
       <google-codelab-step label="Step5" duration="10">
         <aside class="special"><p>In a short word, <code>Replacing Regular Navigation with Wear Navigation</code>.</p>
 </aside>
-<p>Here is an important point to develop a Navigation feature for Wear OS. Using the Wear Navigation instead of the Regular Navigation is required.</p>
+<p>Here is an essential point to implement a Navigation feature for Wear OS. Using Wear Navigation instead of Regular Navigation is required.</p>
 <p>Let&#39;s import the Wear Navigation library by opening <code>build.gradle</code> under  this module like this.</p>
 <p class="image-container"><img alt="Step5-1" src="img/7b345dc2dc1d5e73.png"></p>
 <p>Modify like this. It means that disabling <strong>Non Wear Navigation Part</strong> and enabling <strong>Wear Navigation Part</strong>.</p>
@@ -340,10 +339,10 @@ fun WearApp() {
 // Wear Navigation
 implementation &#34;androidx.wear.compose:compose-navigation:$wear_compose_version&#34;
 </code></pre>
-<p>Afther that, sync the project to import the new library.</p>
+<p>After that, sync the project to import the new library.</p>
 <p class="image-container"><img alt="Step5-2" src="img/6a6694c1e8c4984.png"></p>
-<p>You&#39;ll see some errors on <code>MainActivity</code>. It means we have to modify <strong>some import definitions</strong> like this.</p>
-<pre><code language="language-gradle" class="language-gradle">// for supporting Non-Wear Navigation --from--
+<p>You&#39;ll see some errors on <code>MainActivity</code>. It means we have to modify <strong>some critical definitions</strong> like this.</p>
+<pre><code language="language-kotlin" class="language-kotlin">// for supporting Non-Wear Navigation --from--
 //import androidx.navigation.NavHost
 //import androidx.navigation.NavHostController
 //import androidx.navigation.compose.NavHost
@@ -380,14 +379,14 @@ import androidx.wear.compose.navigation.rememberSwipeDismissableNavController
 <p>Let&#39;s launch the app on the Emulator or the real device again. You&#39;ll be able to move to another screen and back to the previous screen like this.</p>
 <p class="image-container"><img alt="Finished" src="img/d72018f2e2ef4b95.gif"></p>
 <p>Congratulations! That&#39;s it.</p>
-<aside class="special"><p>You can also refer an answer (On <code>finished</code> module, <code>ScreenNavigationV5()</code> function)</p>
+<aside class="special"><p>You can also refer to an answer. (On <code>finished</code> module, <code>ScreenNavigationV5()</code> function)</p>
 </aside>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="See also" duration="0">
-        <p>You learned how to build and improve your app for Wear OS! Here are some more useful materials by Google.</p>
+        <p>You learned how to build and improve your app for Wear OS! Here are some more valuable materials by Google.</p>
 <ul>
 <li><a href="https://codelabs.developers.google.com/?cat=flutter&product=wearos" target="_blank">Codelabs for Wear OS by Google</a></li>
 </ul>
