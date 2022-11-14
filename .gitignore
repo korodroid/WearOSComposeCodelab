@@ -2,7 +2,7 @@
 .gradle/
 build/
 # tmp
-docs_slide/
+docs_slide_private/
 docs_src/
 docs_src_backup/
 
