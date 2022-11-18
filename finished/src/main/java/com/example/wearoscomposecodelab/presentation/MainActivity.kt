@@ -15,7 +15,12 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Face
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTagsAsResourceId
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
@@ -35,7 +40,7 @@ import androidx.wear.compose.navigation.composable
 import androidx.navigation.NavHostController
 import androidx.wear.compose.navigation.rememberSwipeDismissableNavController
 // for supporting Wear Navigation --to--
-import com.example.hellowearoscompose.model.ContactData
+import com.example.wearoscomposecodelab.model.ContactData
 import com.example.hellowearoscompose.model.ContactDataList
 import com.example.wearoscomposecodelab.presentation.theme.WearOSComposeCodelabTheme
 
@@ -84,7 +89,9 @@ fun WearApp() {
 @Composable
 fun ContactListScreenV0() {
     LazyColumn(
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier
+            .testTag("ContactListScreenV0")
     ) {
         item {
             ListHeader {
@@ -236,7 +243,9 @@ fun ContactListScreenV4(navController: NavHostController) {
             )
         }
     ) {
-        ScalingLazyColumn(state = listState) {
+        ScalingLazyColumn(state = listState, modifier = Modifier.semantics {
+            contentDescription = "ScalingLazyColumn"
+        }) {
             item {
                 ListHeader {
                     Text(text = "Contacts")
@@ -288,13 +297,17 @@ fun ScreenNavigationV4(
 /*
  * Navigating Screen (can move forward and back)
  */
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun ScreenNavigationV5(
     navController: NavHostController = rememberSwipeDismissableNavController()
 ) {
     SwipeDismissableNavHost(
         navController = navController,
-        startDestination = "contact_list"
+        startDestination = "contact_list",
+        modifier = Modifier.semantics {
+            testTagsAsResourceId = true
+        }
     ) {
         composable("contact_list") {
             ContactListScreenV4(navController = navController)

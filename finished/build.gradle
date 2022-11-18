@@ -24,6 +24,11 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        benchmark {
+            signingConfig signingConfigs.debug
+            matchingFallbacks = ['release']
+            debuggable false
+        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -70,4 +75,9 @@ dependencies {
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
+
+    implementation "androidx.benchmark:benchmark-macro-junit4:1.1.1"
+    implementation "androidx.profileinstaller:profileinstaller:1.2.0"
+    androidTestImplementation "androidx.benchmark:benchmark-macro-junit4:1.1.1"
+    androidTestImplementation "androidx.profileinstaller:profileinstaller:1.2.0"
 }

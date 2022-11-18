@@ -1,4 +1,4 @@
-package com.example.hellowearoscompose.model
+package com.example.wearoscomposecodelab.model
 
 data class ContactData(
     val name: String,
